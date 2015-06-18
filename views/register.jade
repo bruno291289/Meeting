@@ -1,0 +1,39 @@
+extends layout.jade
+block head
+    script(src="js/controllers/register.js")
+block header
+    script(type='text/javascript').
+        $(document).ready(function(){$(".button-collapse").sideNav();})
+    nav
+        div(class="nav-wrapper green")
+            a(href="/", class="brand-logo") #{title}
+            a(href="/", data-activates="mobile-menu", class="button-collapse")
+                i(class="mdi-navigation-menu")
+            ul(class="right hide-on-med-and-down")
+                li: a(href="/login") Login
+                li: a(href="/register") Registrar-se
+            ul(class="side-nav", id="mobile-menu")
+                li: a(href="/login") Login
+                li: a(href="/register") Registrar-se
+block content
+    div(ng-controller="RegisterCtrl", class="card-panel")
+        form(autocomplete="off", class="container")
+            h2 #{form_title}
+            div(class="row")
+                div(class="input-field col s12")
+                    input(id="name", type="text", class="validate", required, ng-model="user.name")
+                    label(for="name") #{label_name}
+            div(class="row")
+                div(class="input-field col s12")
+                    input(id="email", type="email", class="validate", required, ng-model="user.email")
+                    label(for="email") #{label_email}
+            div(class="row")
+                div(class="input-field col s12")
+                    input(id="password", type="password", class="validate", required, ng-model="user.password")
+                    label(for="password") #{label_password}
+            div(class="row")
+                div(class="input-field col s12")
+                    input(id="confirm_password", type="password", class="validate", required)
+                    label(for="confirm_password") #{label_password}
+            div(class="row")
+                button(class="waves-effect waves-light btn col s12", type="submit", ng-click="login()") #{button_submit}

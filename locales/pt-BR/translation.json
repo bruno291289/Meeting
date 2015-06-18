@@ -1,0 +1,12 @@
+{
+    "app":{
+        "title": "Peladeiros",
+        "login": {
+            "title": "Entrar na App",
+            "email": "Email",
+            "password": "Senha",
+            "sigin": "Entrar",
+            "register": "Registrar-se"
+        }
+    }
+}

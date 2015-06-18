@@ -1,0 +1,33 @@
+extends layout.jade
+block head
+	script(src="js/controllers/login.js")
+block header
+	script(type='text/javascript').
+		$(document).ready(function(){$(".button-collapse").sideNav();})
+	nav
+		div(class="nav-wrapper green")
+			a(href="/", class="brand-logo") #{title}
+			a(href="/", data-activates="mobile-menu", class="button-collapse")
+				i(class="mdi-navigation-menu")
+			ul(class="right hide-on-med-and-down")
+				li: a(href="/login") Login
+				li: a(href="/register") Registrar-se
+			ul(class="side-nav", id="mobile-menu")
+				li: a(href="/login") Login
+				li: a(href="/register") Registrar-se
+block content
+	div(ng-controller="AppCtrl", class="card-panel")
+		form(autocomplete="off", class="container")
+			h2 #{form_title}
+			div(class="row")
+				div(class="input-field col s12")
+					input(id="email", type="email", class="validate", required, ng-model="user.email")
+					label(for="email") #{label_email}
+			div(class="row")
+				div(class="input-field col s12")
+					input(id="password", type="password", class="validate", required, ng-model="user.password")
+					label(for="password") #{label_password}
+			div(class="row")
+				button(class="waves-effect waves-light btn col s12", ng-click="login()") #{button_sigin}
+			div(class="row")
+				a(class="waves-effect waves-light btn col s12", href="/register") #{button_register}

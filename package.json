@@ -1,0 +1,16 @@
+{
+  "name": "SoccerMetting",
+  "version": "0.0.0",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "~3.4.2",
+    "express-load": "^1.1.14",
+    "i18next": "^1.9.0",
+    "jade": "^1.10.0",
+    "jsonwebtoken": "^5.0.1",
+    "locale": "0.0.20",
+    "mongoose": "^4.0.3",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0"
+  }
+}
