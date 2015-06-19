@@ -10,6 +10,19 @@ html(lang="en-US", ng-app="myApp")
 		script(type="text/javascript", src="https://code.jquery.com/jquery-2.1.1.min.js")
 		script(type="text/javascript", src="js/materialize.min.js")
 		header
+			script(type='text/javascript').
+				$(document).ready(function(){$(".button-collapse").sideNav();})
+			nav
+				div(class="nav-wrapper green")
+					a(href="/", class="brand-logo") #{title}
+					a(href="/", data-activates="mobile-menu", class="button-collapse")
+						i(class="mdi-navigation-menu")
+					ul(class="right hide-on-med-and-down")
+						li: a(href="/login") Login
+						li: a(href="/registeruser") Registrar-se
+					ul(class="side-nav", id="mobile-menu")
+						li: a(href="/login") Login
+						li: a(href="/registeruser") Registrar-se
 			block header
 		.container(ng-controller="AppCtrl")
 			.main-content

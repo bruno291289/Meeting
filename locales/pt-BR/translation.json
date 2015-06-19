@@ -2,11 +2,16 @@
     "app":{
         "title": "Peladeiros",
         "login": {
-            "title": "Entrar na App",
+            "title": "Peladeiros",
+            "name": "Nome",
             "email": "Email",
             "password": "Senha",
+            "confirmpassword": "Confirmar Senha",
             "sigin": "Entrar",
             "register": "Registrar-se"
+        },
+        "buttons": {
+            "submit": "Enviar"
         }
     }
 }

@@ -5,6 +5,10 @@ module.exports = function(app) {
     var jwt = require('jsonwebtoken');
 
     var UserSchema = Schema({
+        name:{
+            type: String,
+            required: true
+        },
         email: {
             type: String,
             required: true

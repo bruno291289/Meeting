@@ -1,37 +1,46 @@
 module.exports = function(app) {
+    var User = app.models.user;
+
     var UserController = {
+
         listAll: function(req, res) {
-            app.db.users.find(function(err, docs) {
+            User.find(function(err, docs) {
                 res.json(docs);
             });
         },
-        insert: function(req, res) {
-            var user = new app.models.user(req.body);
-            user.path('email').validate(function(email) {
-                var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-                return emailRegex.test(email.text);
-            }, 'The e-mail field cannot be empty.');
 
+        save: function(req, res) {
+            var user = new User(req.body);
             user.save(function(err, p) {
                 if (!err) {
                     res.json(p);
                 }
             });
         },
+
         delete: function(req, res) {
-            db.users.remove({
-                _id: mongojs.ObjectId(req.params.id)
+            User.remove({
+                _id: req.params.id
             }, function(err, doc) {
                 res.json(doc);
             });
         },
+
         view: function(req, res) {
-            db.users.findOne({
-                _id: mongojs.ObjectId(req.params.id)
+            User.findOne({
+                _id: req.params.id
             }, function(err, doc) {
                 res.json(doc);
             });
         },
+
+        update: function(req, res){
+            db.users.findOneAndUpdate({_id: req.body._id}, req.body, function(err, doc){
+                req.json(doc);
+            });
+        }
+
     };
+
     return UserController;
 }
