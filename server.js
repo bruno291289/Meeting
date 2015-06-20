@@ -6,17 +6,20 @@ var load = require('express-load');
 var passport = require('passport');
 var i18next = require('i18next');
 var methodoverride = require('method-override')();
+var cookieParser = require('cookie-parser');
 
 i18next.init();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + "/public"));
+app.use(cookieParser());
 app.use(i18next.handle);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(methodoverride);
 app.use(passport.initialize());
+app.use(passport.session());
 
 i18next.registerAppHelper(app);
 

@@ -10,6 +10,15 @@
             "sigin": "Entrar",
             "register": "Registrar-se"
         },
+        "registeruser":{
+            "title": "Cadastro de Usuário",
+            "nameRequired": "Informe o seu nome",
+            "emailRequired": "Informe o seu email",
+            "passwordRequired": "Informe a sua senha",
+            "passwordConfirmationRequired": "Confirme a sua senha",
+            "passwordConfirmationDoesntMatch": "Digite novamente a sua senha para confirmação",
+            "emailRightFormat": "Informe o email completo no formato email@dominio.com.br"
+        },
         "buttons": {
             "submit": "Enviar"
         }

@@ -10,10 +10,15 @@ module.exports = function(app) {
         },
 
         save: function(req, res) {
+            console.log('saving a new user ' + req.body);
             var user = new User(req.body);
+            user.setPassword(req.body.password);
             user.save(function(err, p) {
                 if (!err) {
+                    console.log('user saved ' + p);
                     res.json(p);
+                } else{
+                    console.log('an error ocurred while trying to save the user ' + err);
                 }
             });
         },

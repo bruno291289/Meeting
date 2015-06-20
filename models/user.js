@@ -11,7 +11,8 @@ module.exports = function(app) {
         },
         email: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         hash: String,
         salt: String
@@ -39,6 +40,6 @@ module.exports = function(app) {
         }, 'SECRET');
     };
 
-    mongoose.model('User', UserSchema);
-    return UserSchema;
+    var User = mongoose.model('User', UserSchema);
+    return User;
 };
