@@ -1,16 +1,29 @@
-module.exports = function(app) {
-    var passport = require('passport');
+module.exports = function(app, passport) {
     var LocalStrategy = require('passport-local').Strategy;
     var mongoose = require('mongoose');
-    var User = mongoose.model('User');
+    var User = app.models.user;
 
-
-    passport.serializeUser(function(user, done) {
-        done(null, user);
+    app.post('/login', passport.authenticate('local'), function(req, res) {
+        console.log('USER AUTHENTICATED');
+        res.redirect('/home');
     });
 
-    passport.deserializeUser(function(user, done) {
-        done(null, user);
+    app.get('/logout', function(req, res) {
+        req.session.destroy();
+        req.logout();
+        res.redirect('/');
+    });
+
+    passport.serializeUser(function(user, done) {
+        console.log('serializeUser ' + user);
+        done(null, user.id);
+    });
+
+    passport.deserializeUser(function(id, done) {
+        console.log('desserializeUser ' + id);
+        User.findById(id, function(err, user) {
+            done(err, user);
+        });
     });
 
     passport.use(new LocalStrategy({

@@ -1,12 +1,5 @@
 module.exports = function(app) {
     var controller = app.controllers.user;
-    var passport = require('passport');
-
-    app.post('/login', passport.authenticate('local', {
-        sucessRedirect: '/home',
-        failureRedirect: '/login',
-        failureFlash: false
-    }));
 
     app.get('/login', function(req, res) {
         res.render('login', {

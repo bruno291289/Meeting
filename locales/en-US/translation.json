@@ -1,5 +1,26 @@
 {
     "app":{
-        "title": "Soccer Metting"
+        "title": "Soccer Metting",
+        "login": {
+            "title": "Soccer Metting",
+            "name": "Name",
+            "email": "Email",
+            "password": "Password",
+            "confirmpassword": "Password Confirmation",
+            "sigin": "Sigin",
+            "register": "Register"
+        },
+        "registeruser":{
+            "title": "User Registration",
+            "nameRequired": "Tell your name",
+            "emailRequired": "Tell your email",
+            "passwordRequired": "Tell your password",
+            "passwordConfirmationRequired": "Confirm the password",
+            "passwordConfirmationDoesntMatch": "Type again yout password confirmation",
+            "emailRightFormat": "Email example: email@domain.com"
+        },
+        "buttons": {
+            "submit": "Send"
+        }
     }
 }

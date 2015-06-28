@@ -3,17 +3,20 @@ block head
 	script(src="js/controllers/login.js")
 block content
 	div(ng-controller="AppCtrl", class="card-panel")
-		form(autocomplete="off", class="container")
+		form(autocomplete="off", class="container", method="post", action="/login")
 			h2 #{form_title}
+			- if(message)
+				div(class="input-field col s12")
+					span(ng-show="form.username.$error.required") #{message}
 			div(class="row")
 				div(class="input-field col s12")
-					input(id="email", type="email", class="validate", required, ng-model="user.email")
+					input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
 					label(for="email") #{label_email}
 			div(class="row")
 				div(class="input-field col s12")
-					input(id="password", type="password", class="validate", required, ng-model="user.password")
+					input(id="password", type="password", class="validate", required, ng-model="user.password", name="password")
 					label(for="password") #{label_password}
 			div(class="row")
-				button(class="waves-effect waves-light btn col s12", ng-click="login()") #{button_sigin}
+				button(class="waves-effect waves-light btn col s12", type="submit") #{button_sigin}
 			div(class="row")
 				a(class="waves-effect waves-light btn col s12", href="/registeruser") #{button_register}
