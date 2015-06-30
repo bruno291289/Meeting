@@ -1,0 +1,60 @@
+extends layout-loggedin.jade
+block head
+	script(src="js/controllers/company.js")
+	style.
+		.error-text {font-size: 0.9rem; display: block; float: right;}
+block content
+	form(class="container", name="form", novalidate)
+		.card-panel
+			h3 #{form_title}
+			.row
+				div(class="input-field col s12")
+					input(id="name", type="text", class="validate", required, ng-model="company.name", name="company_name")
+					label(for="name") #{label_name}
+					div(ng-show="form.$submitted || form.company_name.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_name.$error.required") #{error_name_required}
+			.row
+					div(class="input-field col s12")
+						input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
+						label(for="email") #{label_email}
+						div(ng-show="form.$submitted || form.email.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="form.email.$error.required") #{error_email_required}
+							span(ng-show="form.email.$error.email") #{error_email_format}
+		.card-panel
+			h4 #{address}
+			.row
+				div(class="input-field col s12")
+					input(id="street", type="text", class="validate", required, ng-model="company.address.street", name="company_street")
+					label(for="street") #{label_street}
+					div(ng-show="form.$submitted || form.company_street.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_street.$error.required") #{error_street_required}
+			.row
+				div(class="input-field col s12")
+					input(id="zipcode", type="text", class="validate", required, ng-model="company.address.zipcode", name="company_zipcode", pattern="\d{5}-?\d{3}")
+					label(for="zipcode") #{label_zipcode}
+					div(ng-show="form.$submitted || form.company_zipcode.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_zipcode.$error.required") #{error_zipcode_required}
+			.row
+				div(class="input-field col s12")
+					input(id="number", type="number", class="validate", required, ng-model="company.address.number", name="company_number")
+					label(for="number") #{label_number}
+					div(ng-show="form.$submitted || form.company_number.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_number.$error.required") #{error_number_required}
+			.row
+				div(class="input-field col s12")
+					input(id="neighborhood", type="text", class="validate", required, ng-model="company.address.neighborhood", name="company_neighborhood")
+					label(for="neighborhood") #{label_neighborhood}
+					div(ng-show="form.$submitted || form.company_neighborhood.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_neighborhood.$error.required") #{error_neighborhood_required}
+			.row
+				div(class="input-field col s12")
+					input(id="city", type="text", class="validate", required, ng-model="company.address.city", name="company_city")
+					label(for="city") #{label_city}
+					div(ng-show="form.$submitted || form.company_city.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_city.$error.required") #{error_city_required}
+			.row
+				div(class="input-field col s12")
+					input(id="country", type="text", class="validate", required, ng-model="company.address.country", name="company_country")
+					label(for="country") #{label_country}
+					div(ng-show="form.$submitted || form.company_country.$touched", class="deep-orange-text accent-4 error-text")
+						span(ng-show="form.company_country.$error.required") #{error_country_required}
