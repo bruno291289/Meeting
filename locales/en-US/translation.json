@@ -1,6 +1,11 @@
 {
     "app":{
         "title": "Soccer Metting",
+        "buttons": {
+            "submit": "Send",
+            "logout": "Logout",
+            "company": "Company"
+        },
         "login": {
             "title": "Soccer Metting",
             "name": "Name",
@@ -19,8 +24,52 @@
             "passwordConfirmationDoesntMatch": "Type again yout password confirmation",
             "emailRightFormat": "Email example: email@domain.com"
         },
-        "buttons": {
-            "submit": "Send"
+        "company": {
+            "title": "Company Profile",
+            "name": "Name",
+            "email": "Email",
+            "nameRequired": "Tell your company's name",
+            "emailRequired": "Tell your company's email",
+            "emailRightFormat": "Email example: email@domain.com",
+            "address": {
+                "title": "Address",
+                "street": "Street",
+                "streetRequired": "Tell your address's street",
+                "zipcode": "Zipcode",
+                "zipcodeRequired": "Tell your address's zipcode",
+                "number": "Number",
+                "numberRequired": "Tell your address's number",
+                "neighborhood": "Neighborhood",
+                "neighborhoodRequired": "Tell your address's neighborhood",
+                "city": "City",
+                "cityRequired": "Tell your address's city",
+                "country": "Country",
+                "countryRequired": "Tell your address's country"
+            },
+
+            "titles":{
+                "description": "Description",
+                "phones": "Phones",
+                "spaces": "Spaces"
+            },
+            "buttons": {
+                "actions": "Actions",
+                "phones": {
+                    "add": "Add Phone",
+                    "delete": "Delete Phone"
+                }
+            },
+            "labels":{
+                "phones": {
+                    "number": "Number",
+                    "description": "Description"
+                }
+            },
+            "errors": {
+                "phones": {
+                    "required": "Tell the phone number"
+                }
+            }
         }
     }
 }

@@ -24,7 +24,10 @@ module.exports = function(app) {
         },
         phones: [{
             number: String,
-            type: String
+            description: String
+        }],
+        spaces: [{
+            description: {type: String, required:true}
         }]
     });
 

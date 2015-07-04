@@ -1,6 +1,11 @@
 {
     "app":{
         "title": "Peladeiros",
+        "buttons": {
+            "submit": "Enviar",
+            "logout": "Sair",
+            "company": "Empresa"
+        },
         "login": {
             "title": "Peladeiros",
             "name": "Nome",
@@ -19,8 +24,52 @@
             "passwordConfirmationDoesntMatch": "Digite novamente a sua senha para confirmação",
             "emailRightFormat": "Informe o email completo no formato email@dominio.com.br"
         },
-        "buttons": {
-            "submit": "Enviar"
+        "company": {
+            "title": "Cadastro de Empresa",
+            "name": "Nome",
+            "email": "Email",
+            "nameRequired": "Informe o nome de sua empresa",
+            "emailRequired": "Informe o email de sua empresa",
+            "emailRightFormat": "Informe o email completo no formato email@dominio.com.br",
+            "address": {
+                "title": "Endereço",
+                "street": "Rua",
+                "streetRequired": "Informe a rua",
+                "zipcode": "CEP",
+                "zipcodeRequired": "Informe o CEP",
+                "number": "Número",
+                "numberRequired": "Informe o número",
+                "neighborhood": "Bairro",
+                "neighborhoodRequired": "Informe o Bairro",
+                "city": "Cidade",
+                "cityRequired": "Informe a Cidade",
+                "country": "País",
+                "countryRequired": "Informe o País"
+            },
+
+            "titles":{
+                "description": "Descrição da empresa",
+                "phones": "Telefones",
+                "spaces": "Espaços"
+            },
+            "buttons": {
+                "actions": "Ações",
+                "phones": {
+                    "add": "Adicionar telefone",
+                    "delete": "Excluir telefone"
+                }
+            },
+            "labels":{
+                "phones": {
+                    "number": "Número",
+                    "description": "Descrição"
+                }
+            },
+            "errors": {
+                "phones": {
+                    "required": "Informe o número de telefone"
+                }
+            }
         }
     }
 }

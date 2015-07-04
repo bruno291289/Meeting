@@ -8,7 +8,7 @@ module.exports = function(app) {
             label_email: req.i18n.t('app.login.email'),
             label_password: req.i18n.t('app.login.password'),
             button_sigin: req.i18n.t('app.login.sigin'),
-            button_register: req.i18n.t('app.login.register')
+            button_register: req.i18n.t('app.login.register'),
         });
     });
 
@@ -27,6 +27,8 @@ module.exports = function(app) {
             error_password_required: req.i18n.t('app.registeruser.passwordRequired'),
             error_confirm_password_required: req.i18n.t('app.registeruser.passwordConfirmationRequired'),
             error_confirm_password_doesnt_match: req.i18n.t('app.registeruser.passwordConfirmationDoesntMatch'),
+            button_sigin: req.i18n.t('app.login.sigin'),
+            button_register: req.i18n.t('app.login.register')
         });
     });
 

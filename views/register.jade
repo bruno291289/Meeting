@@ -2,8 +2,7 @@ extends layout.jade
 block head
 	script(src="js/controllers/register.js")
 	script(src="vendor/angular-validation-match/dist/angular-input-match.js")
-	style.
-		.error-text {font-size: 0.9rem; display: block; float: right;}
+	link(type="text/css", rel="stylesheet", href="css/custom-forms.css")
 block content
 	.card-panel
 		form(autocomplete="off", class="container", name="form", novalidate)

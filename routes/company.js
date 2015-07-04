@@ -26,6 +26,15 @@ module.exports = function(app) {
             error_city_required: req.i18n.t('app.company.address.cityRequired'),
             label_country: req.i18n.t('app.company.address.country'),
             error_country_required: req.i18n.t('app.company.address.countryRequired'),
+            title_description: req.i18n.t('app.company.titles.description'),
+            title_phones: req.i18n.t('app.company.titles.phones'),
+            title_spaces: req.i18n.t('app.company.titles.spaces'),
+            label_phone_number: req.i18n.t('app.company.labels.phones.number'),
+            label_phone_description: req.i18n.t('app.company.labels.phones.description'),
+            error_phone_required: req.i18n.t('app.company.errors.phones.required'),
+            button_add_phone: req.i18n.t('app.company.buttons.phones.add'),
+            button_delete_phone: req.i18n.t('app.company.buttons.phones.delete'),
+            button_actions: req.i18n.t('app.company.buttons.actions')
         });
     });
 

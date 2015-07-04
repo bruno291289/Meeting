@@ -18,11 +18,11 @@ html(lang="en-US", ng-app="myApp")
 					a(href="/", data-activates="mobile-menu", class="button-collapse")
 						i(class="mdi-navigation-menu")
 					ul(class="right hide-on-med-and-down")
-						li: a(href="/login") Login
-						li: a(href="/registeruser") Registrar-se
+						li: a(href="/login") #{button_sigin}
+						li: a(href="/registeruser") #{button_register}
 					ul(class="side-nav", id="mobile-menu")
-						li: a(href="/login") Login
-						li: a(href="/registeruser") Registrar-se
+						li: a(href="/login") #{button_sigin}
+						li: a(href="/registeruser") #{button_register}
 			block header
 		.container(ng-controller="AppCtrl")
 			.main-content
