@@ -4,78 +4,79 @@ block head
 	link(type="text/css", rel="stylesheet", href="css/custom-forms.css")
 	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 block content
-	form(class="container", name="form", novalidate)
-		.card-panel
-			i(class="medium material-icons waves-effect waves-light", title="#{title_description}", ng-click="changeToDescription()") description
-			i(class="medium material-icons waves-effect waves-light", title="#{title_phones}", ng-click="changeToPhone()") phone
-			i(class="medium material-icons waves-effect waves-light", title="#{title_spaces}", ng-click="changeToMedia()") perm_media
-			span(ng-show="stateDescription()")
+	.card-panel
+		i(class="medium material-icons waves-effect waves-light", title="#{title_description}", ng-click="changeToDescription()") description
+		i(class="medium material-icons waves-effect waves-light", title="#{title_phones}", ng-click="changeToPhone()") phone
+		i(class="medium material-icons waves-effect waves-light", title="#{title_spaces}", ng-click="changeToMedia()") perm_media
+		span(ng-show="stateDescription()")
+			form(class="container", name="formDescription", novalidate)
 				h3 #{form_title}
 				.row
 					div(class="input-field col s12")
 						input(id="name", type="text", class="validate", required, ng-model="company.name", name="company_name")
 						label(for="name") #{label_name}
-						div(ng-show="form.$submitted || form.company_name.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_name.$error.required") #{error_name_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_name.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_name.$error.required") #{error_name_required}
 				.row
 						div(class="input-field col s12")
 							input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
 							label(for="email") #{label_email}
-							div(ng-show="form.$submitted || form.email.$touched", class="deep-orange-text accent-4 error-text")
-								span(ng-show="form.email.$error.required") #{error_email_required}
-								span(ng-show="form.email.$error.email") #{error_email_format}
+							div(ng-show="formDescription.$submitted || formDescription.email.$touched", class="deep-orange-text accent-4 error-text")
+								span(ng-show="formDescription.email.$error.required") #{error_email_required}
+								span(ng-show="formDescription.email.$error.email") #{error_email_format}
 				h4 #{address}
 				.row
 					div(class="input-field col s12")
 						input(id="street", type="text", class="validate", required, ng-model="company.address.street", name="company_street")
 						label(for="street") #{label_street}
-						div(ng-show="form.$submitted || form.company_street.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_street.$error.required") #{error_street_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_street.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_street.$error.required") #{error_street_required}
 				.row
 					div(class="input-field col s12")
 						input(id="zipcode", type="text", class="validate", required, ng-model="company.address.zipcode", name="company_zipcode", pattern="\d{5}-?\d{3}")
 						label(for="zipcode") #{label_zipcode}
-						div(ng-show="form.$submitted || form.company_zipcode.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_zipcode.$error.required") #{error_zipcode_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_zipcode.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_zipcode.$error.required") #{error_zipcode_required}
 				.row
 					div(class="input-field col s12")
 						input(id="number", type="number", class="validate", required, ng-model="company.address.number", name="company_number")
 						label(for="number") #{label_number}
-						div(ng-show="form.$submitted || form.company_number.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_number.$error.required") #{error_number_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_number.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_number.$error.required") #{error_number_required}
 				.row
 					div(class="input-field col s12")
 						input(id="neighborhood", type="text", class="validate", required, ng-model="company.address.neighborhood", name="company_neighborhood")
 						label(for="neighborhood") #{label_neighborhood}
-						div(ng-show="form.$submitted || form.company_neighborhood.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_neighborhood.$error.required") #{error_neighborhood_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_neighborhood.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_neighborhood.$error.required") #{error_neighborhood_required}
 				.row
 					div(class="input-field col s12")
 						input(id="city", type="text", class="validate", required, ng-model="company.address.city", name="company_city")
 						label(for="city") #{label_city}
-						div(ng-show="form.$submitted || form.company_city.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_city.$error.required") #{error_city_required}
+						div(ng-show="formDescription.$submitted || formDescription.company_city.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_city.$error.required") #{error_city_required}
 				.row
 					div(class="input-field col s12")
 						input(id="country", type="text", class="validate", required, ng-model="company.address.country", name="company_country")
 						label(for="country") #{label_country}
-						div(ng-show="form.$submitted || form.company_country.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.company_country.$error.required") #{error_country_required}
-			span(ng-show="statePhone()")
+						div(ng-show="formDescription.$submitted || formDescription.company_country.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formDescription.company_country.$error.required") #{error_country_required}
+		span(ng-show="statePhone()")
+			form(class="container", name="formPhones", novalidate)
 				.row
 					h4(class="left") #{title_phones}
 				.row
 					div(class="input-field col s3")
 						input(id="phone_number", type="text", class="validate", required, ng-model="phone.number", name="phone_number")
 						label(for="name") #{label_phone_number}
-						div(ng-show="form.$submitted || form.phone_number.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="form.phone_number.$error.required") #{error_phone_required}
-					div(class="input-field col s7")
-						input(id="phone_number", type="text", class="validate", ng-model="phone.description", name="phone_description")
+						div(ng-show="formPhones.$submitted || formPhones.phone_number.$touched", class="deep-orange-text accent-4 error-text")
+							span(ng-show="formPhones.phone_number.$error.required") #{error_phone_required}
+					div(class="input-field col s8")
+						input(id="phone_description", type="text", class="validate", ng-model="phone.description", name="phone_description")
 						label(for="name") #{label_phone_description}
-					div(class="input-field col s2")
-						button(class="btn waves-effect waves-light", title="#{button_add_phone}", ng-click="addPhone()")
-							i(class="material-icons", title="#{button_add_phone}", ng-click="addPhone()") send
+					div(class="input-field col s1")
+						button(class="btn-floating btn-medium waves-effect waves-light", title="#{button_add_phone}", ng-click="addPhone()", ng-disabled="formPhones.$invalid")
+							i(class="small material-icons", title="#{button_add_phone}") add
 				.row
 					table
 						col
@@ -91,7 +92,20 @@ block content
 								td {{p.number}}
 								td {{p.description}}
 								td
-									button(class="btn waves-effect waves-light red", title="#{button_delete_phone}", ng-click="removePhone()")
-										i(class="material-icons") delete
-			span(ng-show="stateMedia()")
-				p Teste media
+									button(class="btn-floating btn-medium waves-effect waves-light red", title="#{button_delete_phone}", ng-click="removePhone()")
+										i(class="small material-icons") delete
+		span(ng-show="stateMedia()")
+			form(class="container", name="formSpaces", novalidate)
+				.row
+					h4(class="left") #{title_spaces}
+				.row
+					div(class="input-field col s11")
+						input(id="space_title", type="text", class="validate", ng-model="space.title", name="space_title")
+						label(for="space_title") #{label_space_title}
+					div(class="input-field col s1")
+						button(class="btn-floating btn-medium waves-effect waves-light", title="#{button_add_phone}", ng-click="addPhone()", ng-disabled="formSpaces.$invalid")
+							i(class="small material-icons", title="#{button_add_spaces}") add
+				.row
+					div(class="input-field col s12")
+						textarea(id="space_description", class="materialize-textarea validate", ng-model="space.description", name="space_description")
+						label(for="space_description") #{label_space_description}

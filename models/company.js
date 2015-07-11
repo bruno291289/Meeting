@@ -27,7 +27,9 @@ module.exports = function(app) {
             description: String
         }],
         spaces: [{
-            description: {type: String, required:true}
+            title:{type: String, required:true},
+            description: {type: String, required:true},
+            filepaths: [{path: String}]
         }]
     });
 
