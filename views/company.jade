@@ -5,9 +5,14 @@ block head
 	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 block content
 	.card-panel
-		i(class="medium material-icons waves-effect waves-light", title="#{title_description}", ng-click="changeToDescription()") description
-		i(class="medium material-icons waves-effect waves-light", title="#{title_phones}", ng-click="changeToPhone()") phone
-		i(class="medium material-icons waves-effect waves-light", title="#{title_spaces}", ng-click="changeToMedia()") perm_media
+		.col.s12
+			ul.tabs
+				li.tab.col.s3
+					a(id="btnDescription" class="active", ng-click="changeToDescription()") Descrição
+				li.tab.col.s3
+					a(id="btnPhones" ng-click="changeToPhone()") Telefones
+				li.tab.col.s3
+					a(id="btnSpaces" ng-click="changeToMedia()") Espaços
 		span(ng-show="stateDescription()")
 			form(class="container", name="formDescription", novalidate)
 				h3 #{form_title}
@@ -61,6 +66,8 @@ block content
 						label(for="country") #{label_country}
 						div(ng-show="formDescription.$submitted || formDescription.company_country.$touched", class="deep-orange-text accent-4 error-text")
 							span(ng-show="formDescription.company_country.$error.required") #{error_country_required}
+				.row
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnPhones').click()") Próximo
 		span(ng-show="statePhone()")
 			form(class="container", name="formPhones", novalidate)
 				.row
@@ -94,6 +101,9 @@ block content
 								td
 									button(class="btn-floating btn-medium waves-effect waves-light red", title="#{button_delete_phone}", ng-click="removePhone()")
 										i(class="small material-icons") delete
+				.row
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnSpaces').click()") Próximo
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
 		span(ng-show="stateMedia()")
 			form(class="container", name="formSpaces", novalidate)
 				.row
@@ -109,3 +119,6 @@ block content
 					div(class="input-field col s12")
 						textarea(id="space_description", class="materialize-textarea validate", ng-model="space.description", name="space_description")
 						label(for="space_description") #{label_space_description}
+				.row
+					button.btn.waves-effect.waves-light.right(type="submit") Enviar
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
