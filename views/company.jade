@@ -3,6 +3,8 @@ block head
 	script(src="js/controllers/company.js")
 	link(type="text/css", rel="stylesheet", href="css/custom-forms.css")
 	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+	style.
+		.right-space{margin-right:10px;}
 block content
 	.card-panel
 		.col.s12
@@ -15,16 +17,16 @@ block content
 					a(id="btnSpaces" ng-click="changeToMedia()") Espaços
 		span(ng-show="stateDescription()")
 			form(class="container", name="formDescription", novalidate)
-				h3 #{form_title}
+				h3 Cadastro da Empresa
 				.row
 					div(class="input-field col s12")
 						input(id="name", type="text", class="validate", required, ng-model="company.name", name="company_name")
-						label(for="name") #{label_name}
+						label(for="name") Nome
 						div(ng-show="formDescription.$submitted || formDescription.company_name.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_name.$error.required") #{error_name_required}
+							span(ng-show="formDescription.company_name.$error.required") Informe o nome da empresa
 				.row
 						div(class="input-field col s12")
-							input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
+							input(id="email", type="email", class="validate", required, ng-model="company.email", name="email")
 							label(for="email") #{label_email}
 							div(ng-show="formDescription.$submitted || formDescription.email.$touched", class="deep-orange-text accent-4 error-text")
 								span(ng-show="formDescription.email.$error.required") #{error_email_required}
@@ -103,22 +105,32 @@ block content
 										i(class="small material-icons") delete
 				.row
 					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnSpaces').click()") Próximo
-					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
+					button.btn.waves-effect.waves-light.right.right-space(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
 		span(ng-show="stateMedia()")
 			form(class="container", name="formSpaces", novalidate)
 				.row
-					h4(class="left") #{title_spaces}
+					h4(class="left") Espaços
 				.row
 					div(class="input-field col s11")
 						input(id="space_title", type="text", class="validate", ng-model="space.title", name="space_title")
-						label(for="space_title") #{label_space_title}
+						label(for="space_title") Título
 					div(class="input-field col s1")
-						button(class="btn-floating btn-medium waves-effect waves-light", title="#{button_add_phone}", ng-click="addPhone()", ng-disabled="formSpaces.$invalid")
-							i(class="small material-icons", title="#{button_add_spaces}") add
+						button(class="btn-floating btn-medium waves-effect waves-light", title="Adicionar", ng-click="addSpace()", ng-disabled="formSpaces.$invalid")
+							i(class="small material-icons", title="Adicionar") add
 				.row
-					div(class="input-field col s12")
-						textarea(id="space_description", class="materialize-textarea validate", ng-model="space.description", name="space_description")
-						label(for="space_description") #{label_space_description}
+					table
+						col
+						col(style="width:10% !important")
+						thead
+							tr
+								th Título
+								th Ações
+						tbody
+							tr(ng-repeat="s in company.spaces")
+								td {{s.title}}
+								td
+									button(class="btn-floating btn-medium waves-effect waves-light red", title="Excluir", ng-click="removeSpace()")
+										i(class="small material-icons") delete
 				.row
-					button.btn.waves-effect.waves-light.right(type="submit") Enviar
-					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
+					button.btn.waves-effect.waves-light.right(type="submit" ng-click="saveCompany()") Enviar
+					button.btn.waves-effect.waves-light.right.right-space(type="submit" onclick="document.getElementById('btnPhones').click()") Anterior

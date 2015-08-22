@@ -1,6 +1,9 @@
 module.exports = function(app) {
 
     var authenticator = require('../util/authenticator');
+    var controller = app.controllers.company;
+
+    app.get('/userCompany', authenticator, controller.userCompany);
 
     app.get('/company', authenticator, function(req, res) {
         res.render('company', {
@@ -37,5 +40,7 @@ module.exports = function(app) {
             button_actions: req.i18n.t('app.company.buttons.actions')
         });
     });
+
+    app.post('/company', authenticator, controller.save);
 
 }

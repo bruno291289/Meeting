@@ -3,7 +3,7 @@ module.exports = function(app) {
     var Schema = mongoose.Schema;
 
     var CompanySchema = Schema({
-        owner: {type: Schema.ObjectId, ref: "User"},
+        owner: {type: Schema.ObjectId, ref: "User", required: true, unique: true},
         name: {
             type: String,
             required: true,
@@ -28,7 +28,7 @@ module.exports = function(app) {
         }],
         spaces: [{
             title:{type: String, required:true},
-            description: {type: String, required:true},
+            description: String,
             filepaths: [{path: String}]
         }]
     });
