@@ -40,7 +40,7 @@ block content
 							span(ng-show="formDescription.company_street.$error.required") #{error_street_required}
 				.row
 					div(class="input-field col s12")
-						input(id="zipcode", type="text", class="validate", required, ng-model="company.address.zipcode", name="company_zipcode", pattern="\d{5}-?\d{3}")
+						input(id="zipcode", type="text", class="validate", required, ng-model="company.address.zipcode", name="company_zipcode")
 						label(for="zipcode") #{label_zipcode}
 						div(ng-show="formDescription.$submitted || formDescription.company_zipcode.$touched", class="deep-orange-text accent-4 error-text")
 							span(ng-show="formDescription.company_zipcode.$error.required") #{error_zipcode_required}
@@ -117,6 +117,9 @@ block content
 					div(class="input-field col s1")
 						button(class="btn-floating btn-medium waves-effect waves-light", title="Adicionar", ng-click="addSpace()", ng-disabled="formSpaces.$invalid")
 							i(class="small material-icons", title="Adicionar") add
+				.row
+					.input-field.col.s11
+						input.validate()
 				.row
 					table
 						col

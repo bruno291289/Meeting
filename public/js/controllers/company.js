@@ -10,7 +10,14 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$window',
         $scope.windowState = 'description';
 
         $http.get('/userCompany').success(function(data) {
-            $scope.company = data
+            $scope.company = data;
+
+            if (!$scope.company) {
+                $scope.company = {
+                    phones: [],
+                    spaces: []
+                };
+            }
         });
 
         $scope.stateDescription = function() {

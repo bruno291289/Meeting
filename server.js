@@ -9,6 +9,7 @@ var methodoverride = require('method-override')();
 var cookieParser = require('cookie-parser');
 var flash = require('express-flash');
 var session = require('express-session');
+var multer = require('multer');
 
 i18next.init();
 
@@ -36,6 +37,7 @@ var db = mongoose.connection;
 
 load('models').then('controllers').then('routes').into(app, passport);
 require('./config/passport')(app, passport);
+require('./config/multer')(app, multer);
 
 app.listen(3000);
 console.log("Server running on port 3000.");
