@@ -29,7 +29,8 @@ module.exports = function(app) {
         spaces: [{
             title:{type: String, required:true},
             description: String,
-            filepaths: [{path: String}]
+            type: {type: String, required:true},
+            price: {type: Number, required: true}
         }]
     });
 

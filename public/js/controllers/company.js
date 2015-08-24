@@ -1,6 +1,7 @@
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http', '$window',
     function($scope, $http, $window) {
+        $scope.spaceIndex = null;
         $scope.phone = {};
         $scope.space = {};
         $scope.company = {
@@ -48,15 +49,20 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$window',
         $scope.removePhone = function(p) {
             $scope.company.phones.splice($scope.company.phones.indexOf(p), 1);
         }
-        var clearSpace = function() {
+        $scope.clearSpace = function() {
             $scope.space = {};
+            $scope.spaceIndex = null;
         }
         $scope.addSpace = function() {
             $scope.company.spaces.push($scope.space);
-            clearSpace();
+            $scope.clearSpace();
         }
         $scope.removeSpace = function(s) {
             $scope.company.spaces.splice($scope.company.spaces.indexOf(s), 1);
+        }
+        $scope.viewSpace = function(s){
+            $scope.spaceIndex = $scope.company.spaces.indexOf(s);
+            $scope.space = s;
         }
         $scope.saveCompany = function() {
             $http.post('/company', $scope.company).success(function(data) {
