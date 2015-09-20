@@ -1,28 +1,48 @@
 {
     "app":{
-        "title": "Peladeiros",
+        "titles": {
+            "main": "Pedaleiros"
+        },
         "buttons": {
-            "submit": "Enviar",
+            "login": "Entrar",
             "logout": "Sair",
+            "register": "Registrar-se",
             "company": "Empresa"
         },
         "login": {
-            "title": "Peladeiros",
-            "name": "Nome",
-            "email": "Email",
-            "password": "Senha",
-            "confirmpassword": "Confirmar Senha",
-            "sigin": "Entrar",
-            "register": "Registrar-se"
+            "titles": {
+                "main": "Pedaleiros"
+            },
+            "labels": {
+                "email": "Email",
+                "password": "Senha"
+            },
+            "buttons":{
+                "login": "Entrar",
+                "register": "Registrar-se"
+            }
         },
         "registeruser":{
-            "title": "Cadastro de Usuário",
-            "nameRequired": "Informe o seu nome",
-            "emailRequired": "Informe o seu email",
-            "passwordRequired": "Informe a sua senha",
-            "passwordConfirmationRequired": "Confirme a sua senha",
-            "passwordConfirmationDoesntMatch": "Digite novamente a sua senha para confirmação",
-            "emailRightFormat": "Informe o email completo no formato email@dominio.com.br"
+            "titles": {
+                "main": "Cadastro de Usuários"
+            },
+            "labels": {
+                "name": "Nome",
+                "email": "Email",
+                "password": "Senha",
+                "confirmpassword": "Confirmar Senha"
+            },
+            "errors":{
+                "nameRequired": "Informe o seu nome",
+                "emailRequired": "Informe o seu email",
+                "passwordRequired": "Informe a sua senha",
+                "passwordConfirmationRequired": "Confirme a sua senha",
+                "passwordConfirmationDoesntMatch": "Digite novamente a sua senha para confirmação",
+                "emailRightFormat": "Informe o email completo no formato email@dominio.com.br"
+            },
+            "buttons": {
+                "submit": "Enviar"
+            }
         },
         "company": {
             "title": "Cadastro de Empresa",

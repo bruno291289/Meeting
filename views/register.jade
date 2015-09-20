@@ -6,32 +6,32 @@ block head
 block content
 	.card-panel
 		form(autocomplete="off", class="container", name="form", novalidate)
-			h3 #{form_title}
+			h3= t('app.registeruser.titles.main')
 			.row
 				div(class="input-field col s12")
 					input(id="name", type="text", class="validate", required, ng-model="user.name", name="username")
-					label(for="name") #{label_name}
+					label(for="name")= t('app.registeruser.labels.name')
 					div(ng-show="form.$submitted || form.username.$touched", class="deep-orange-text accent-4 error-text")
-						span(ng-show="form.username.$error.required") #{error_name_required}
+						span(ng-show="form.username.$error.required")= t('app.registeruser.errors.nameRequired')
 			.row
 				div(class="input-field col s12")
 					input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
-					label(for="email") #{label_email}
+					label(for="email")= t('app.registeruser.labels.email')
 					div(ng-show="form.$submitted || form.email.$touched", class="deep-orange-text accent-4 error-text")
-						span(ng-show="form.email.$error.required") #{error_email_required}
-						span(ng-show="form.email.$error.email") #{error_email_format}
+						span(ng-show="form.email.$error.required")= t('app.registeruser.errors.emailRequired')
+						span(ng-show="form.email.$error.email")= t('app.registeruser.errors.emailFormat')
 			.row
 				div(class="input-field col s12")
 					input(id="password", type="password", class="validate", required, ng-model="user.password", name="password")
-					label(for="password") #{label_password}
+					label(for="password")= t('app.registeruser.labels.password')
 					div(ng-show="form.$submitted || form.password.$touched", class="deep-orange-text accent-4  error-text")
-						span(ng-show="form.password.$error.required") #{error_password_required}
+						span(ng-show="form.password.$error.required")= t('app.registeruser.errors.passwordRequired')
 			.row
 				div(class="input-field col s12")
 					input(id="confirm_password", type="password", class="validate", required, ng-model="user.passwordConfirm", name="passwordConfirmField", match="user.password")
-					label(for="confirm_password") #{label_confirm_password}
+					label(for="confirm_password")= t('app.registeruser.labels.confirmPassword')
 					div(ng-show="form.$submitted || form.password.$touched", class="deep-orange-text accent-4  error-text")
-						span(ng-show="form.passwordConfirmField.$error.required && !form.passwordConfirmField.$error.match") #{error_confirm_password_required}
-						span(ng-show="form.passwordConfirmField.$error.match") #{error_confirm_password_doesnt_match}
+						span(ng-show="form.passwordConfirmField.$error.required && !form.passwordConfirmField.$error.match")= t('app.registeruser.erros.confirmPasswordRequired')
+						span(ng-show="form.passwordConfirmField.$error.match")= t('app.registeruser.errors.passwordConfirmationDoesntMatch')
 			.row
-				button(class="btn waves-effect waves-light col s12", type="submit", ng-click="registerUser()", ng-disabled="form.$invalid", ng-model="button_submit") #{button_submit}
+				button(class="btn waves-effect waves-light col s12", type="submit", ng-click="registerUser()", ng-disabled="form.$invalid", ng-model="button_submit")= t('app.registeruser.buttons.submit')
