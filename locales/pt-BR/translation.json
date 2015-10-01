@@ -1,5 +1,5 @@
 {
-    "app":{
+    "app": {
         "titles": {
             "main": "Pedaleiros"
         },
@@ -17,12 +17,12 @@
                 "email": "Email",
                 "password": "Senha"
             },
-            "buttons":{
+            "buttons": {
                 "login": "Entrar",
                 "register": "Registrar-se"
             }
         },
-        "registeruser":{
+        "registeruser": {
             "titles": {
                 "main": "Cadastro de Usuários"
             },
@@ -32,7 +32,7 @@
                 "password": "Senha",
                 "confirmpassword": "Confirmar Senha"
             },
-            "errors":{
+            "errors": {
                 "nameRequired": "Informe o seu nome",
                 "emailRequired": "Informe o seu email",
                 "passwordRequired": "Informe a sua senha",
@@ -45,41 +45,13 @@
             }
         },
         "company": {
-            "title": "Cadastro de Empresa",
-            "name": "Nome",
-            "email": "Email",
-            "nameRequired": "Informe o nome de sua empresa",
-            "emailRequired": "Informe o email de sua empresa",
-            "emailRightFormat": "Informe o email completo no formato email@dominio.com.br",
-            "address": {
-                "title": "Endereço",
-                "street": "Rua",
-                "streetRequired": "Informe a rua",
-                "zipcode": "CEP",
-                "zipcodeRequired": "Informe o CEP",
-                "number": "Número",
-                "numberRequired": "Informe o número",
-                "neighborhood": "Bairro",
-                "neighborhoodRequired": "Informe o Bairro",
-                "city": "Cidade",
-                "cityRequired": "Informe a Cidade",
-                "country": "País",
-                "countryRequired": "Informe o País"
-            },
-
-            "titles":{
-                "description": "Descrição da empresa",
+            "titles": {
+                "description": "Descrição",
                 "phones": "Telefones",
-                "spaces": "Espaços"
+                "spaces": "Espaços",
+                "pictures": "Fotos"
             },
-            "buttons": {
-                "actions": "Ações",
-                "phones": {
-                    "add": "Adicionar telefone",
-                    "delete": "Excluir telefone"
-                }
-            },
-            "labels":{
+            "labels": {
                 "phones": {
                     "number": "Número",
                     "description": "Descrição"
@@ -88,6 +60,34 @@
             "errors": {
                 "phones": {
                     "required": "Informe o número de telefone"
+                }
+            },
+            "address": {
+                "titles": {
+                    "main": "Endereço"
+                },
+                "labels": {
+                    "street": "Rua",
+                    "zipcode": "CEP",
+                    "number": "Número",
+                    "neighborhood": "Bairro",
+                    "city": "Cidade",
+                    "country": "País"
+                },
+                "errors": {
+                    "streetRequired": "Informe a rua",
+                    "zipcodeRequired": "Informe o CEP",
+                    "numberRequired": "Informe o número",
+                    "neighborhoodRequired": "Informe o Bairro",
+                    "cityRequired": "Informe a Cidade",
+                    "countryRequired": "Informe o País"
+                }
+            },
+            "buttons": {
+                "actions": "Ações",
+                "phones": {
+                    "add": "Adicionar telefone",
+                    "delete": "Excluir telefone"
                 }
             }
         }

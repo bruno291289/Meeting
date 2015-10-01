@@ -2,21 +2,21 @@ extends layout.jade
 block head
 	script(src="js/controllers/login.js")
 block content
-	div(ng-controller="AppCtrl", class="card-panel")
-		form(autocomplete="off", class="container", method="post", action="/login")
-			h2 #{form_title}
+	.card-panel(ng-controller="AppCtrl")
+		h2= t('app.login.titles.main')
+		form.container(autocomplete="off" method="post" action="/login")
 			- if(message)
-				div(class="input-field col s12")
+				.nput-field.col.s12
 					span(ng-show="form.username.$error.required") #{message}
-			div(class="row")
-				div(class="input-field col s12")
-					input(id="email", type="email", class="validate", required, ng-model="user.email", name="email")
-					label(for="email") #{label_email}
-			div(class="row")
-				div(class="input-field col s12")
-					input(id="password", type="password", class="validate", required, ng-model="user.password", name="password")
-					label(for="password") #{label_password}
-			div(class="row")
-				button(class="waves-effect waves-light btn col s12", type="submit") #{button_sigin}
-			div(class="row")
-				a(class="waves-effect waves-light btn col s12", href="/registeruser") #{button_register}
+			.row
+				.input-field.col.s12
+					input.validate(id="email" type="email" required ng-model="user.email" name="email")
+					label(for="email")= t('app.login.labels.email')
+			.row
+				.input-field.col.s12
+					input.validate(id="password" type="password" required ng-model="user.password" name="password")
+					label(for="password")= t('app.login.labels.password')
+			.row.center
+				button.orange.accent-2.waves-effect.waves-light.btn.black-text(type="submit")= t('app.login.buttons.login')
+			.row.center
+				a.orange.accent-1.waves-effect.waves-light.btn.black-text(href="/registeruser")= t('app.login.buttons.register')

@@ -5,7 +5,7 @@ html(lang="en-US", ng-app="myApp")
 		link(type="text/css", rel="stylesheet", href="vendor/materialize/dist/css/materialize.css",  media="screen,projection")
 		script(src="vendor/angular/angular.min.js")
 		script(src="vendor/jquery/dist/jquery.min.js")
-		title #{title}
+		title= t('app.titles.main')
 		block head
 	body
 		script(type="text/javascript", src="vendor/materialize/dist/js/materialize.min.js")
@@ -13,16 +13,18 @@ html(lang="en-US", ng-app="myApp")
 			script(type='text/javascript').
 				$(document).ready(function(){$(".button-collapse").sideNav();})
 			nav
-				div(class="nav-wrapper green")
-					a(href="/home", class="brand-logo") #{title}
-					a(href="/home", data-activates="mobile-menu", class="button-collapse")
-						i(class="mdi-navigation-menu")
-					ul(class="right hide-on-med-and-down")
-						li: a(href="/company") #{company}
-						li: a(href="/logout") #{logout}
-					ul(class="side-nav", id="mobile-menu")
-						li: a(href="/logout") #{logout}
-						li: a(href="/company") #{company}
+				.nav-wrapper.green
+					a.brand-logo(href="/home")= t('app.titles.main')
+					a.button-collapse(href="/home" data-activates="mobile-menu")
+						i.mdi-navigation-menu
+					ul.right.hide-on-med-and-down
+						li: a(href="/company")= t('app.buttons.company')
+						li: a(href="/companypictures")= t('app.buttons.companypictures')
+						li: a(href="/logout")= t('app.buttons.logout')
+					ul.side-nav(id="mobile-menu")
+						li: a(href="/logout")= t('app.buttons.logout')
+						li: a(href="/company")= t('app.buttons.company')
+						li: a(href="/companypictures")= t('app.buttons.companypictures')
 			block header
 		.container(ng-controller="AppCtrl")
 			.main-content

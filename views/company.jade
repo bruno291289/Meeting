@@ -1,7 +1,7 @@
 extends layout-loggedin.jade
 block head
 	script(src="js/controllers/company.js")
-	link(type="text/css", rel="stylesheet", href="css/custom-forms.css")
+	link(type="text/css" rel="stylesheet" href="css/custom-forms.css")
 	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 	style.
 		.right-space{margin-right:10px;}
@@ -10,70 +10,62 @@ block content
 		.col.s12
 			ul.tabs
 				li.tab.col.s3
-					a(id="btnDescription" class="active", ng-click="changeToDescription()") Descrição
+					a.active(id="btnDescription" ng-click="changeToDescription()")= t('app.company.titles.description')
 				li.tab.col.s3
-					a(id="btnPhones" ng-click="changeToPhone()") Telefones
+					a(id="btnPhones" ng-click="changeToPhone()")= t('app.company.titles.phones')
 				li.tab.col.s3
-					a(id="btnSpaces" ng-click="changeToMedia()") Espaços
+					a(id="btnSpaces" ng-click="changeToMedia()")= t('app.company.titles.spaces')
 		span(ng-show="stateDescription()")
-			form(class="container", name="formDescription", novalidate)
-				h3 Cadastro da Empresa
+			form.container(name="formDescription" novalidate)
+				h3= t('app.company.titles.description')
 				.row
-					div(class="input-field col s12")
-						input(id="company_name" type="text" class="validate" required ng-model="company.name" name="company_name")
-						label.active(for="company_name") Nome
-						div(ng-show="formDescription.$submitted || formDescription.company_name.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_name.$error.required") Informe o nome da empresa
+					.input-field.col.s12
+						input.validate(id="company_name" type="text" required ng-model="company.name" name="company_name" placeholder=t('app.company.labels.name'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_name.$touched")
+							span(ng-show="formDescription.company_name.$error.required")= t('app.company.validations.companyNameRequired')
 				.row
-						div(class="input-field col s12")
-							input(id="email", type="email", class="validate", required, ng-model="company.email", name="email")
-							label.active(for="email") #{label_email}
-							div(ng-show="formDescription.$submitted || formDescription.email.$touched", class="deep-orange-text accent-4 error-text")
-								span(ng-show="formDescription.email.$error.required") #{error_email_required}
-								span(ng-show="formDescription.email.$error.email") #{error_email_format}
-				h4 #{address}
+					.input-field.col.s12
+						input.validate(id="email" type="email" required ng-model="company.email" name="email" placeholder=t('app.company.labels.email'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.email.$touched")
+							span(ng-show="formDescription.email.$error.required")= t('app.company.validations.emailRequired')
+							span(ng-show="formDescription.email.$error.email")= t('app.company.validations.emailFormat')
+				h4= t('app.company.titles.address')
 				.row
-					div(class="input-field col s12")
-						input(id="street", type="text", class="validate", required, ng-model="company.address.street", name="company_street")
-						label(for="street") #{label_street}
-						div(ng-show="formDescription.$submitted || formDescription.company_street.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_street.$error.required") #{error_street_required}
+					.input-field.col.s12
+						input.validate(id="street" type="text" required ng-model="company.address.street" name="company_street" placeholder=t('app.company.address.labels.street'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_street.$touched")
+							span(ng-show="formDescription.company_street.$error.required")= t('app.company.address.labels.streetRequired')
 				.row
-					div(class="input-field col s12")
-						input(id="zipcode", type="text", class="validate", required, ng-model="company.address.zipcode", name="company_zipcode")
-						label(for="zipcode") #{label_zipcode}
-						div(ng-show="formDescription.$submitted || formDescription.company_zipcode.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_zipcode.$error.required") #{error_zipcode_required}
+					.input-field.col.s12
+						input.validate(id="zipcode" type="text" required ng-model="company.address.zipcode" name="company_zipcode" placeholder=t('app.company.address.labels.zipcode'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_zipcode.$touched")
+							span(ng-show="formDescription.company_zipcode.$error.required")= t('app.company.address.validations.zipcodeRequired')
 				.row
-					div(class="input-field col s12")
-						input(id="number", type="number", class="validate", required, ng-model="company.address.number", name="company_number")
-						label(for="number") #{label_number}
-						div(ng-show="formDescription.$submitted || formDescription.company_number.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_number.$error.required") #{error_number_required}
+					.input-field.col.s12
+						input.validate(id="number" type="number" required ng-model="company.address.number" name="company_number" placeholder=t('app.company.address.labels.number'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_number.$touched")
+							span(ng-show="formDescription.company_number.$error.required")= t('app.company.address.labels.numberRequired')
 				.row
-					div(class="input-field col s12")
-						input(id="neighborhood", type="text", class="validate", required, ng-model="company.address.neighborhood", name="company_neighborhood")
-						label(for="neighborhood") #{label_neighborhood}
-						div(ng-show="formDescription.$submitted || formDescription.company_neighborhood.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_neighborhood.$error.required") #{error_neighborhood_required}
+					.input-field.col.s12
+						input.validate(id="neighborhood" type="text" required ng-model="company.address.neighborhood" name="company_neighborhood" placeholder=t('app.company.address.labels.neighborhood'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_neighborhood.$touched")
+							span(ng-show="formDescription.company_neighborhood.$error.required")= t('app.company.address.validations.neighborhood')
 				.row
-					div(class="input-field col s12")
-						input(id="city", type="text", class="validate", required, ng-model="company.address.city", name="company_city")
-						label(for="city") #{label_city}
-						div(ng-show="formDescription.$submitted || formDescription.company_city.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_city.$error.required") #{error_city_required}
+					.input-field.col.s12
+						input.validate(id="city" type="text" required ng-model="company.address.city" name="company_city" placeholder=t('app.company.address.labels.city'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_city.$touched")
+							span(ng-show="formDescription.company_city.$error.required")= t('app.company.address.validations.cityRequired')
 				.row
-					div(class="input-field col s12")
-						input(id="country", type="text", class="validate", required, ng-model="company.address.country", name="company_country")
-						label(for="country") #{label_country}
-						div(ng-show="formDescription.$submitted || formDescription.company_country.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formDescription.company_country.$error.required") #{error_country_required}
+					.input-field.col.s12
+						input(id="country" type="text" class="validate" required ng-model="company.address.country" name="company_country" placeholder=t('app.company.address.labels.country'))
+						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_country.$touched")
+							span(ng-show="formDescription.company_country.$error.required")= t('app.company.address.validatoins.countryRequired')
 				.row
-					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnPhones').click()") Próximo
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnPhones').click()")= t('app.company.buttons.next')
 		span(ng-show="statePhone()")
-			form(class="container", name="formPhones", novalidate)
+			form.container(name="formPhones" novalidate)
 				.row
-					h4(class="left") #{title_phones}
+					h4= t('app.company.titles.phones')
 				.row
 					div(class="input-field col s3")
 						input(id="phone_number", type="text", class="validate", required, ng-model="phone.number", name="phone_number")
@@ -124,7 +116,7 @@ block content
 							i.small.material-icons(title="Novo") add
 				.row
 					.input-field.col.s12
-						select#space_type.validate.browser-default(name="space_type" ng-model="space.type" required)
+						select#space_type.validate.browser-default.input-field(name="space_type" ng-model="space.type" required)
 							option(value='', selected='') Escolha um tipo
 							option(value='Salão') Salão
 							option(value='Sintético') Sintético

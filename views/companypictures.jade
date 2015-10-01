@@ -1,0 +1,12 @@
+extends layout-loggedin.jade
+block head
+	script(src="js/controllers/companypicture.js")
+	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+block content
+	//- form#uploadForm(enctype='multipart/form-data', action='/company/photo', method='post')
+	//- 	input(type='file', name='userPhoto' multiple)
+	//- 	input(type='submit', value='Upload Image', name='submit')
+	form#uploadForm(enctype='multipart/form-data', action='/company/photo', method='post')
+		.card
+			h4 Arraste a imagem aqui
+		div()

@@ -3,7 +3,12 @@ module.exports = function(app) {
     var Schema = mongoose.Schema;
 
     var CompanySchema = Schema({
-        owner: {type: Schema.ObjectId, ref: "User", required: true, unique: true},
+        owner: {
+            type: Schema.ObjectId,
+            ref: "User",
+            required: true,
+            unique: true
+        },
         name: {
             type: String,
             required: true,
@@ -27,10 +32,29 @@ module.exports = function(app) {
             description: String
         }],
         spaces: [{
-            title:{type: String, required:true},
+            title: {
+                type: String,
+                required: true
+            },
             description: String,
-            type: {type: String, required:true},
-            price: {type: Number, required: true}
+            type: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            }
+        }],
+        pictures: [{
+            title: {
+                type: String,
+                required: true
+            },
+            src: {
+                type: String,
+                required: true
+            }
         }]
     });
 

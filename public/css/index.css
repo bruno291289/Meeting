@@ -1,0 +1,9 @@
+.hero {
+    background-image: url('http://wallpoper.com/images/00/32/67/17/grass-soccer_00326717.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    overflow: hidden;
+    height: 500px;
+}

@@ -4,9 +4,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$window',
         $scope.spaceIndex = null;
         $scope.phone = {};
         $scope.space = {};
+        $scope.picture = {};
         $scope.company = {
             phones: [],
-            spaces: []
+            spaces: [],
+            pictures: []
         };
         $scope.windowState = 'description';
 
@@ -16,7 +18,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$window',
             if (!$scope.company) {
                 $scope.company = {
                     phones: [],
-                    spaces: []
+                    spaces: [],
+                    pictures: []
                 };
             }
         });
@@ -38,6 +41,12 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$window',
         }
         $scope.changeToMedia = function() {
             $scope.windowState = 'perm_media'
+        }
+        $scope.statePicture = function() {
+            return $scope.windowState == 'pictures'
+        }
+        $scope.changeToPicture = function() {
+            $scope.windowState = 'pictures'
         }
         var clearPhone = function() {
             $scope.phone = {};
