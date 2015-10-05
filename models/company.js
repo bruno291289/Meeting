@@ -47,10 +47,6 @@ module.exports = function(app) {
             }
         }],
         pictures: [{
-            title: {
-                type: String,
-                required: true
-            },
             src: {
                 type: String,
                 required: true

@@ -4,9 +4,8 @@ module.exports = function(app) {
 
     var multer = require('multer');
     var upload = multer({
-        dest: './uploads/'
+        dest: './public/uploads/'
     });
-
 
     app.get('/userCompany', authenticator, controller.userCompany);
     app.get('/company', authenticator, function(req, res) {
@@ -18,4 +17,7 @@ module.exports = function(app) {
     app.get('/companypictures', authenticator, function(req, res) {
         res.render('companypictures')
     });
+
+    app.post('/company/photo', upload.array('file'), controller.savePhotos);
+    app.post('/company/photo/remove/:id/:picid', controller.removePhoto);
 }

@@ -51,6 +51,79 @@ module.exports = function(app) {
                     console.log('ERRO AO TENTAR CONSULTAR A EMPRESA DO USUAŔIO ' + err);
             });
         },
+        savePhotos: function(req, res) {
+            console.log('Salvando foto');
+            Company.findOne({
+                _id: req.body.company_id
+            }, function(err, doc) {
+                if (!err) {
+                    for (var i = 0; i < req.files.length; i++) {
+                        var f = req.files[i];
+                        doc.pictures.push({
+                            src: f.path.replace('../public/', '')
+                        });
+                    }
+                    console.log('SAVING ' + doc);
+                    doc.save(function(err, doc) {
+                        if (err) {
+                            console.log('ERRO AO TENTAR SALVAR AS FOTOS ' + err);
+                        }
+                        res.json(doc);
+                    });
+                } else
+                    console.log('ERRO AO TENTAR CONSULTAR A EMPRESA DO USUAŔIO ' + err);
+            });
+        },
+        removePhoto: function(req, res) {
+            console.log('Removendo Imagem');
+            console.log('Id da empresa ' + req.params.id);
+            console.log('Id da imagem ' + req.params.picid);
+
+            Company.update({
+                _id: req.params.id
+            }, {
+                $pull: {
+                    pictures: {
+                        _id: req.params.picid
+                    }
+                }
+            }, {
+                safe: true
+            }, function(err, p) {
+                if (err) {
+                    console.log('ERRO AO TENTAR REMOVER AS FOTOS ' + err);
+                } else {
+                    var fs = require('fs');
+                    fs.unlinkSync(__dirname+'public/'+p.src);
+
+                    Company.findOne({
+                        _id: req.params.id
+                    }, function(err, doc) {
+                        res.json(doc)
+                    });
+                }
+            });
+
+
+            // Company.findOne({
+            //     _id: req.params.id
+            // }, function(err, doc) {
+            //     if (!err) {
+            //        var p = doc.pictures.pull({_id: req.params.picid});
+            //        console.log('removendo ' + p);
+            //        var fs = require('fs');
+            //        fs.unlinkSync(__dirname+'public/'+p.src);
+
+            //        doc.save(function(err, doc) {
+            //             if (err) {
+            //                 console.log('ERRO AO TENTAR SALVAR AS FOTOS ' + err);
+            //             }
+            //             res.json(doc);
+            //         });
+            //     } else
+            //         console.log('ERRO AO TENTAR CONSULTAR A EMPRESA DO USUAŔIO ' + err);
+            // });
+        }
     };
     return CompanyController;
 }
