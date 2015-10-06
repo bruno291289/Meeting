@@ -1,13 +1,13 @@
-nav.top-nav {
-	height: 122px;
-	box-shadow: none;
-}
-nav.top-nav {
-	line-height: 122px;
-	font-size: 48px;
-}
-
-.page-title{
+.top-header {
+	height: 96px;
 	line-height: 122px;
 	font-size: 32px;
+}
+
+.top-action-button{
+	top: 34px;
+}
+
+.bellow-button-content{
+	margin-top: 30px;
 }

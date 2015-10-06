@@ -1,83 +1,82 @@
-extends layout-loggedin.jade
+extends layout-inner-app.jade
 block head
 	script(src="js/controllers/company.js")
 	link(type="text/css" rel="stylesheet" href="css/custom-forms.css")
-	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 	style.
 		.right-space{margin-right:10px;}
+block menus
+	li: a(href="/companypictures") Fotos
 block content
 	.card-panel
 		.col.s12
 			ul.tabs
 				li.tab.col.s3
-					a.active(id="btnDescription" ng-click="changeToDescription()")= t('app.company.titles.description')
+					a.active(id="btnDescription" ng-click="changeToDescription()") Descrição
 				li.tab.col.s3
-					a(id="btnPhones" ng-click="changeToPhone()")= t('app.company.titles.phones')
+					a(id="btnPhones" ng-click="changeToPhone()") Telefones
 				li.tab.col.s3
-					a(id="btnSpaces" ng-click="changeToMedia()")= t('app.company.titles.spaces')
+					a(id="btnSpaces" ng-click="changeToMedia()") Espaços
 		span(ng-show="stateDescription()")
 			form.container(name="formDescription" novalidate)
-				h3= t('app.company.titles.description')
+				h3 Descrições
 				.row
 					.input-field.col.s12
-						input.validate(id="company_name" type="text" required ng-model="company.name" name="company_name" placeholder=t('app.company.labels.name'))
+						input.validate(id="company_name" type="text" required ng-model="company.name" name="company_name" placeholder="Nome")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_name.$touched")
-							span(ng-show="formDescription.company_name.$error.required")= t('app.company.validations.companyNameRequired')
+							span(ng-show="formDescription.company_name.$error.required") Informe o nome da empresa
 				.row
 					.input-field.col.s12
-						input.validate(id="email" type="email" required ng-model="company.email" name="email" placeholder=t('app.company.labels.email'))
+						input.validate(id="email" type="email" required ng-model="company.email" name="email" placeholder="Email")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.email.$touched")
-							span(ng-show="formDescription.email.$error.required")= t('app.company.validations.emailRequired')
-							span(ng-show="formDescription.email.$error.email")= t('app.company.validations.emailFormat')
-				h4= t('app.company.titles.address')
+							span(ng-show="formDescription.email.$error.required") Informe o email da empresa
+							span(ng-show="formDescription.email.$error.email") O formato do email está incorreto
+				h4 Endereço
 				.row
 					.input-field.col.s12
-						input.validate(id="street" type="text" required ng-model="company.address.street" name="company_street" placeholder=t('app.company.address.labels.street'))
+						input.validate(id="street" type="text" required ng-model="company.address.street" name="company_street" placeholder="Rua")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_street.$touched")
-							span(ng-show="formDescription.company_street.$error.required")= t('app.company.address.labels.streetRequired')
+							span(ng-show="formDescription.company_street.$error.required") Informe a Rua
 				.row
 					.input-field.col.s12
-						input.validate(id="zipcode" type="text" required ng-model="company.address.zipcode" name="company_zipcode" placeholder=t('app.company.address.labels.zipcode'))
+						input.validate(id="zipcode" type="text" required ng-model="company.address.zipcode" name="company_zipcode" placeholder="CEP")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_zipcode.$touched")
-							span(ng-show="formDescription.company_zipcode.$error.required")= t('app.company.address.validations.zipcodeRequired')
+							span(ng-show="formDescription.company_zipcode.$error.required") Informe o CEP
 				.row
 					.input-field.col.s12
-						input.validate(id="number" type="number" required ng-model="company.address.number" name="company_number" placeholder=t('app.company.address.labels.number'))
+						input.validate(id="number" type="number" required ng-model="company.address.number" name="company_number" placeholder="Número")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_number.$touched")
-							span(ng-show="formDescription.company_number.$error.required")= t('app.company.address.labels.numberRequired')
+							span(ng-show="formDescription.company_number.$error.required") Informe o Número
 				.row
 					.input-field.col.s12
-						input.validate(id="neighborhood" type="text" required ng-model="company.address.neighborhood" name="company_neighborhood" placeholder=t('app.company.address.labels.neighborhood'))
+						input.validate(id="neighborhood" type="text" required ng-model="company.address.neighborhood" name="company_neighborhood" placeholder="Bairro")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_neighborhood.$touched")
-							span(ng-show="formDescription.company_neighborhood.$error.required")= t('app.company.address.validations.neighborhood')
+							span(ng-show="formDescription.company_neighborhood.$error.required") Informe o Bairro
 				.row
 					.input-field.col.s12
-						input.validate(id="city" type="text" required ng-model="company.address.city" name="company_city" placeholder=t('app.company.address.labels.city'))
+						input.validate(id="city" type="text" required ng-model="company.address.city" name="company_city" placeholder="Cidade")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_city.$touched")
-							span(ng-show="formDescription.company_city.$error.required")= t('app.company.address.validations.cityRequired')
+							span(ng-show="formDescription.company_city.$error.required") Informe a Cidade
 				.row
 					.input-field.col.s12
-						input(id="country" type="text" class="validate" required ng-model="company.address.country" name="company_country" placeholder=t('app.company.address.labels.country'))
+						input(id="country" type="text" class="validate" required ng-model="company.address.country" name="company_country" placeholder="País")
 						.deep-orange-text.accent-4.error-text(ng-show="formDescription.$submitted || formDescription.company_country.$touched")
-							span(ng-show="formDescription.company_country.$error.required")= t('app.company.address.validatoins.countryRequired')
+							span(ng-show="formDescription.company_country.$error.required") Informe o País
 				.row
-					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnPhones').click()")= t('app.company.buttons.next')
+					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnPhones').click()") Próximo
 		span(ng-show="statePhone()")
 			form.container(name="formPhones" novalidate)
 				.row
-					h4= t('app.company.titles.phones')
+					h4 Telefones
 				.row
 					div(class="input-field col s3")
-						input(id="phone_number", type="text", class="validate", required, ng-model="phone.number", name="phone_number")
-						label(for="name") #{label_phone_number}
+						input(id="phone_number", type="text", class="validate", required, ng-model="phone.number", name="phone_number" placeholder="Número")
 						div(ng-show="formPhones.$submitted || formPhones.phone_number.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formPhones.phone_number.$error.required") #{error_phone_required}
+							span(ng-show="formPhones.phone_number.$error.required") Informe o número
 					div(class="input-field col s8")
-						input(id="phone_description", type="text", class="validate", ng-model="phone.description", name="phone_description")
-						label(for="name") #{label_phone_description}
+						input(id="phone_description", type="text", class="validate", ng-model="phone.description", name="phone_description" placeholder="Descrição")
 					div(class="input-field col s1")
-						button(class="btn-floating btn-medium waves-effect waves-light", title="#{button_add_phone}", ng-click="addPhone()", ng-disabled="formPhones.$invalid")
-							i(class="small material-icons", title="#{button_add_phone}") save
+						button(class="btn-floating btn-medium waves-effect waves-light", title="Adicionar", ng-click="addPhone()", ng-disabled="formPhones.$invalid")
+							i(class="small material-icons", title="Adicionar") save
 				.row
 					table
 						col
@@ -85,15 +84,15 @@ block content
 						col(style="width:10% !important")
 						thead
 							tr
-								th #{label_phone_number}
-								th #{label_phone_description}
-								th #{button_actions}
+								th Número
+								th Descrição
+								th Ações
 						tbody
 							tr(ng-repeat="p in company.phones")
 								td {{p.number}}
 								td {{p.description}}
 								td
-									button(class="btn-floating btn-medium waves-effect waves-light red", title="#{button_delete_phone}", ng-click="removePhone(p)")
+									button(class="btn-floating btn-medium waves-effect waves-light red", title="Remover", ng-click="removePhone(p)")
 										i(class="small material-icons") delete
 				.row
 					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnSpaces').click()") Próximo
@@ -104,8 +103,7 @@ block content
 					h4(class="left") Espaços
 				.row
 					div.input-field.col.s11
-						input(id="space_title" type="text" class="validate" ng-model="space.title" name="space_title" required)
-						label(for="space_title") Título
+						input(id="space_title" type="text" class="validate" ng-model="space.title" name="space_title" required placeholder="Título")
 						div(ng-show="formSpaces.space_title.$touched", class="deep-orange-text accent-4 error-text")
 							span(ng-show="formSpaces.space_title.$error.required") Informe o título do espaço
 					div.input-field.col.s1(ng-show="spaceIndex == null")
@@ -125,14 +123,12 @@ block content
 							span(ng-show="formSpaces.space_type.$error.required") Informe o tipo
 				.row
 					.input-field.col.s12
-						input#space_price.validate(type="number" ng-model="space.price" required name="space_price")
-						label(for="space_price") Preço
+						input#space_price.validate(type="number" ng-model="space.price" required name="space_price" placeholder="Preço")
 						div(ng-show="formSpaces.space_price.$touched", class="deep-orange-text accent-4 error-text")
 							span(ng-show="formSpaces.space_price.$error.required") Informe o preço de utilização do espaço
 				.row
 					.input-field.col.s12
-						textarea#space_description.materialize-textarea(ng-model="space.description")
-						label(for='space_description') Descrição
+						textarea#space_description.materialize-textarea(ng-model="space.description" placeholder="Descrição")
 				.row
 					table
 						col

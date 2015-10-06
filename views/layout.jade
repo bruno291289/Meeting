@@ -5,7 +5,7 @@ html(lang="en-US", ng-app="myApp")
 		link(type="text/css", rel="stylesheet", href="vendor/materialize/dist/css/materialize.css",  media="screen,projection")
 		script(src="vendor/angular/angular.min.js")
 		script(src="vendor/jquery/dist/jquery.min.js")
-		title= t('app.titles.main')
+		title Pedaleiros
 		block head
 	body
 		script(type="text/javascript", src="vendor/materialize/dist/js/materialize.min.js")
@@ -14,15 +14,15 @@ html(lang="en-US", ng-app="myApp")
 				$(document).ready(function(){$(".button-collapse").sideNav();})
 			nav
 				.nav-wrapper.green
-					a.brand-logo(href="/")= t('app.titles.main')
+					a.brand-logo(href="/") Pedaleiros
 					a.button-collapse(href="/", data-activates="mobile-menu")
 						i.mdi-navigation-menu
 					ul.right.hide-on-med-and-down
-						li: a(href="/login")= t('app.buttons.login')
-						li: a(href="/registeruser")= t('app.buttons.register')
+						li: a(href="/login") Entrar
+						li: a(href="/registeruser") Registrar-se
 					ul.side-nav(id="mobile-menu")
-						li: a(href="/login")= t('app.buttons.login')
-						li: a(href="/registeruser")= t('app.buttons.register')
+						li: a(href="/login") Entrar
+						li: a(href="/registeruser") Registrar-se
 			block header
 		.container(ng-controller="AppCtrl")
 			.main-content

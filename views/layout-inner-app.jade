@@ -3,28 +3,26 @@ html(lang="en-US", ng-app="myApp")
 	head
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 		link(type="text/css", rel="stylesheet", href="vendor/materialize/dist/css/materialize.css",  media="screen,projection")
+		link(type="text/css", rel="stylesheet", href="css/inner-app.css",  media="screen,projection")
+		link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
 		script(src="vendor/angular/angular.min.js")
 		script(src="vendor/jquery/dist/jquery.min.js")
-		title= t('app.titles.main')
+		title Pedaleiros
 		block head
 	body
 		script(type="text/javascript", src="vendor/materialize/dist/js/materialize.min.js")
 		header
 			script(type='text/javascript').
 				$(document).ready(function(){$(".button-collapse").sideNav();})
-			nav
+			nav.top-header
 				.nav-wrapper.green
-					a.brand-logo(href="/home")= t('app.titles.main')
+					block title
 					a.button-collapse(href="/home" data-activates="mobile-menu")
 						i.mdi-navigation-menu
-					ul.right.hide-on-med-and-down
-						li: a(href="/company") Empresa
-						li: a(href="/companypictures") Fotos
-						li: a(href="/logout") Sair
-					ul.side-nav(id="mobile-menu")
-						li: a(href="/logout") Empresa
-						li: a(href="/company") Fotos
-						li: a(href="/companypictures") Sair
+					ul.side-nav.fixed(id="mobile-menu")
+						li: a(href="/home") Pedaleiros
+						block menus
+					block in-nav
 			block header
 		.container(ng-controller="AppCtrl")
 			.main-content

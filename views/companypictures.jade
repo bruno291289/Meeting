@@ -1,30 +1,32 @@
 extends layout-inner-app.jade
 block head
+	link(href="css/images.css" rel="stylesheet")
 	script(src="vendor/ng-file-upload-shim/ng-file-upload-shim.min.js")
 	script(src="vendor/ng-file-upload/ng-file-upload.min.js")
 	script(src="js/controllers/companypictures.js")
 	script(src="js/companypicture_viewctrl.js")
-	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
-	link(href="css/images.css" rel="stylesheet")
 block content
-	form#uploadForm(enctype='multipart/form-data', action='/company/photo', method='post')
-		button.btn-floating.btn-large.waves-effect.waves-light.orange(ngf-drop ngf-select ng-model="files" class="drop-box"
-				ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-				accept="image/*" ng-disabled="uploading()"
-				ngf-pattern="'image/*'")
-			i.material-icons add
-		ul.collection
-			li.collection-item.avatar(ng-repeat="f in files")
-				img.circle(ngf-src="f")
-				span.title {{f.name}} - {{f.progress}} %
+	form#uploadForm.bellow-button-content(enctype='multipart/form-data', action='/company/photo', method='post')
+		//- ul.collection
+		//- 	li.collection-item.avatar(ng-repeat="f in files")
+		//- 		img.circle(ngf-src="f")
+		//- 		span.title {{f.name}} - {{f.progress}} %
 		ul
 			li(ng-repeat="p in company.pictures")
 				.card.floating-box
 					.card-image.waves-effect.waves-block.waves-light
-						img.activator(src="{{p.src}}" ng-click="selectImage(p);" onClick="showModal()" draggable="false" )
+						img.activator(ngf-src="p.src" ng-click="selectImage(p);" onClick="showModal()" draggable="false" )
 		#modal1.modal.modal-fixed-footer
-			.modal-content
-				img.fill-image(src="{{file.src}}" )
+			.modal-content(ng-show="imageSelected();")
+				img.fill-image(ngf-src="currentFile.src" ng-show="imageSelected();")
 			.modal-footer
 				a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Fechar
 				a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!', ng-click="removeImage();") Excluir
+block in-nav
+	button.top-action-button.btn-floating.btn-large.waves-effect.waves-light.orange(ngf-drop ngf-select ng-model="files" class="drop-box"
+																ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+																accept="image/*" ng-disabled="uploading()"
+																ngf-pattern="'image/*'")
+		i.material-icons add
+block menus
+	li: a(href="/company") Empresa

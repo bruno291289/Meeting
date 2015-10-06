@@ -1,8 +1,8 @@
 var myApp = angular.module('myApp', ['ngFileUpload']);
 myApp.controller('AppCtrl', ['$scope', '$http', 'Upload', '$timeout',
     function($scope, $http, Upload, $timeout) {
-        $scope.file = {};
-        $scope.files = {};
+        $scope.currentFile = {}
+
 
         $scope.company = {
             phones: [],
@@ -109,12 +109,16 @@ myApp.controller('AppCtrl', ['$scope', '$http', 'Upload', '$timeout',
         };
 
         $scope.selectImage = function(file) {
-            $scope.file = file;
+            $scope.currentFile = file;
         };
 
+        $scope.imageSelected = function(){
+            return $scope.currentFile && $scope.currentFile.src && $scope.currentFile.src.length > 0;
+        }
+
         $scope.removeImage = function() {
-            if ($scope.file && $scope.company) {
-                $http.post('/company/photo/remove/'+$scope.company._id+'/'+$scope.file._id).success(function(data) {
+            if ($scope.currentFile && $scope.company) {
+                $http.post('/company/photo/remove/'+$scope.company._id+'/'+$scope.currentFile._id).success(function(data) {
                     $scope.company = data;
 
                     if (!$scope.company) {
