@@ -6,27 +6,25 @@ block head
 	script(src="js/controllers/companypictures.js")
 	script(src="js/companypicture_viewctrl.js")
 block content
-	form#uploadForm.bellow-button-content(enctype='multipart/form-data', action='/company/photo', method='post')
-		//- ul.collection
-		//- 	li.collection-item.avatar(ng-repeat="f in files")
-		//- 		img.circle(ngf-src="f")
-		//- 		span.title {{f.name}} - {{f.progress}} %
-		ul
-			li(ng-repeat="p in company.pictures")
-				.card.floating-box
-					.card-image.waves-effect.waves-block.waves-light
-						img.activator(ngf-src="p.src" ng-click="selectImage(p);" onClick="showModal()" draggable="false" )
-		#modal1.modal.modal-fixed-footer
-			.modal-content(ng-show="imageSelected();")
-				img.fill-image(ngf-src="currentFile.src" ng-show="imageSelected();")
-			.modal-footer
-				a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Fechar
-				a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!', ng-click="removeImage();") Excluir
-block in-nav
+	ul
+		li(ng-repeat="p in company.pictures")
+			.card.floating-box
+				.card-image.waves-effect.waves-block.waves-light
+					img.activator(ngf-src="p.src" ng-click="selectImage(p);" onClick="showModal()" draggable="false" )
+	#modal1.modal.modal-fixed-footer
+		.modal-content(ng-show="imageSelected();")
+			img.fill-image(ngf-src="currentFile.src" ng-show="imageSelected();")
+		.modal-footer
+			input#mainphoto(type="checkbox" ng-model="currentFile.main")
+			label(for="mainphoto") Principal
+			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Fechar
+			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!', ng-click="removeImage();") Excluir
 	button.top-action-button.btn-floating.btn-large.waves-effect.waves-light.orange(ngf-drop ngf-select ng-model="files" class="drop-box"
-																ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-																accept="image/*" ng-disabled="uploading()"
-																ngf-pattern="'image/*'")
+																				ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+																				accept="image/*" ng-disabled="uploading()"
+																				ngf-pattern="'image/*'")
 		i.material-icons add
+block in-nav
+	.titulo Empresa > Fotos
 block menus
 	li: a(href="/company") Empresa

@@ -16,11 +16,10 @@ html(lang="en-US", ng-app="myApp")
 				$(document).ready(function(){$(".button-collapse").sideNav();})
 			nav.top-header
 				.nav-wrapper.green
-					block title
 					a.button-collapse(href="/home" data-activates="mobile-menu")
 						i.mdi-navigation-menu
 					ul.side-nav.fixed(id="mobile-menu")
-						li: a(href="/home") Pedaleiros
+						li: a.menu-principal(href="/home") Pedaleiros
 						block menus
 					block in-nav
 			block header

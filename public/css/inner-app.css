@@ -5,9 +5,27 @@
 }
 
 .top-action-button{
-	top: 34px;
+	top: 68px;
+	right: 10px;
+	position: absolute;
 }
 
 .bellow-button-content{
 	margin-top: 30px;
+}
+
+.titulo{
+	margin-left: 50px;
+	font-size: 80%;
+	position: relative;
+}
+
+@media only screen and (min-width : 993px) {
+	.titulo{
+		margin-left: 250px;
+	}
+}
+
+.formulario{
+	margin-top: 20px;
 }

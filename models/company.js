@@ -50,7 +50,8 @@ module.exports = function(app) {
             src: {
                 type: String,
                 required: true
-            }
+            },
+            main: {type: Boolean, default: false}
         }]
     });
 
