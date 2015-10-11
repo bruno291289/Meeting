@@ -1,0 +1,28 @@
+extends layout-inner-app.jade
+block head
+	link(href="css/companylist-style.css" rel="stylesheet")
+	script(src="js/controllers/companylist.js")
+block content
+	.row(ng-repeat="c in companies")
+		.col.s12.m7
+			.card
+				.card-image.waves-effect.waves-block.waves-light
+					img.activator(src="/images/default.gif" ng-show="!c.pictures.length")
+					img.activator(ng-src="/{{c.pictures[0].src}}" ng-show="c.pictures.length")
+				.card-content
+					span.card-title.activator.grey-text.text-darken-4 {{c.name}}
+						i.material-icons.right more_vert
+					p {{c.name}}
+				.card-reveal
+					span.card-title.grey-text.text-darken-4 {{c.name}}
+						i.material-icons.right close
+					p Email: {{c.email}}
+					h5 Endereço
+					p {{c.address.street}} {{c.address.number}} {{c.address.neighborhood}} {{c.address.zipcode}}
+					p {{c.address.city}} {{c.address.country}}
+					h5 Contatos
+					p(ng-repeat="p in c.phones") {{p.number}} - {{p.description}}
+					h5 Espaços
+					p(ng-repeat="s in c.spaces") {{s.title}} - {{s.type}} - {{s.price}}
+block in-nav
+	.titulo Busca de Empresas

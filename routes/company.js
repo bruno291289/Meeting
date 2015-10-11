@@ -20,4 +20,10 @@ module.exports = function(app) {
 
     app.post('/company/photo', upload.array('file'), controller.savePhotos);
     app.post('/company/photo/remove/:id/:picid', controller.removePhoto);
+
+    app.get('/company/list', authenticator, controller.list);
+
+    app.get('/companysearch', authenticator, function(req, res) {
+        res.render('companylist')
+    });
 }

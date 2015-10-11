@@ -94,6 +94,15 @@ module.exports = function(app) {
                     }
                 });
             });
+        },
+        list: function(req, res) {
+            Company.find({}, function(err, docs) {
+                if (!err) {
+                    res.json(docs);
+                }else{
+                    console.log('erro ao tentar consultar as empresas ' + err);
+                }
+            });
         }
     };
     return CompanyController;
