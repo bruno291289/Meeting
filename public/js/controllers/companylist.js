@@ -2,6 +2,7 @@ var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http',
     function($scope, $http) {
         $scope.companies = {};
+        $scope.company = {};
 
         reloadCompany = function() {
             $http.get('/company/list').success(function(data) {
@@ -14,5 +15,9 @@ myApp.controller('AppCtrl', ['$scope', '$http',
         };
 
         reloadCompany();
+
+        $scope.selectCompany = function(c){
+            $scope.company = c;
+        }
     }
 ]);

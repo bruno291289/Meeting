@@ -5,7 +5,7 @@
 }
 
 .top-action-button{
-	top: 68px;
+	top: 35px;
 	right: 10px;
 	position: absolute;
 }
@@ -14,9 +14,12 @@
 	margin-top: 30px;
 }
 
+.absolute{
+	position: absolute;
+}
+
 .titulo{
 	margin-left: 50px;
-	font-size: 80%;
 	position: relative;
 }
 
