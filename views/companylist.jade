@@ -33,12 +33,14 @@ block content
 				.row
 					.input-field.col.s12
 						select.browser-default
-							option(ng-repeat="s in company.spaces" value="{{s}}") {{s.title}}
+							option(ng-repeat="s in company.spaces" value="{{s}}") {{s.title}} - {{s.price}}
 				.row
 					.input-field.col.s6
 						input(type="datetime-local" placeholder="Início")
 					.input-field.col.s6
 						input(type="datetime-local" placeholder="Fim")
+				.row
+					p Quantidade em horas {{event.end - event.start}}, totalizando {{(event.end - event.start) * s.price}}.
 				.row
 					.input-field.col.s12
 						textarea#space_description.materialize-textarea(placeholder="Descrição")
