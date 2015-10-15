@@ -6,7 +6,6 @@ myApp.controller('AppCtrl', ['$scope', '$http', 'Upload', '$timeout',
 
         $scope.company = {
             phones: [],
-            spaces: [],
             pictures: []
         };
 

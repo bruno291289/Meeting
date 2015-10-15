@@ -6,6 +6,7 @@ block head
 		.right-space{margin-right:10px;}
 block menus
 	li: a(href="/companypictures") Fotos
+	li: a(href="/space") Espaços
 block in-nav
 	.titulo Empresa
 block content
@@ -16,8 +17,6 @@ block content
 					a.active(id="btnDescription" ng-click="changeToDescription()") Descrição
 				li.tab.col.s3
 					a(id="btnPhones" ng-click="changeToPhone()") Telefones
-				li.tab.col.s3
-					a(id="btnSpaces" ng-click="changeToMedia()") Espaços
 		span(ng-show="stateDescription()")
 			form.container(name="formDescription" novalidate)
 				h3 Descrições
@@ -97,59 +96,5 @@ block content
 									button(class="btn-floating btn-medium waves-effect waves-light red", title="Remover", ng-click="removePhone(p)")
 										i(class="small material-icons") delete
 				.row
-					button.btn.waves-effect.waves-light.right(type="submit" onclick="document.getElementById('btnSpaces').click()") Próximo
-					button.btn.waves-effect.waves-light.right.right-space(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior
-		span(ng-show="stateMedia()")
-			form(class="container", name="formSpaces", novalidate)
-				.row
-					h4(class="left") Espaços
-				.row
-					div.input-field.col.s11
-						input(id="space_title" type="text" class="validate" ng-model="space.title" name="space_title" required placeholder="Título")
-						div(ng-show="formSpaces.space_title.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formSpaces.space_title.$error.required") Informe o título do espaço
-					div.input-field.col.s1(ng-show="spaceIndex == null")
-						button.btn-floating.btn-medium.waves-effect.waves-light(title="Adicionar" ng-click="addSpace()" ng-disabled="formSpaces.$invalid")
-							i.small.material-icons(title="Adicionar") save
-					div.input-field.col.s1(ng-show="spaceIndex != null")
-						button.btn-floating.btn-medium.waves-effect.waves-light.green(title="Novo" ng-click="clearSpace()")
-							i.small.material-icons(title="Novo") add
-				.row
-					.input-field.col.s12
-						select#space_type.validate.browser-default.input-field(name="space_type" ng-model="space.type" required)
-							option(value='', selected='') Escolha um tipo
-							option(value='Salão') Salão
-							option(value='Sintético') Sintético
-							option(value='Society') Society
-						div(ng-show="formSpaces.space_type.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formSpaces.space_type.$error.required") Informe o tipo
-				.row
-					.input-field.col.s12
-						input#space_price.validate(type="number" ng-model="space.price" required name="space_price" placeholder="Preço")
-						div(ng-show="formSpaces.space_price.$touched", class="deep-orange-text accent-4 error-text")
-							span(ng-show="formSpaces.space_price.$error.required") Informe o preço de utilização do espaço
-				.row
-					.input-field.col.s12
-						textarea#space_description.materialize-textarea(ng-model="space.description" placeholder="Descrição")
-				.row
-					table
-						col
-						col
-						col(style="width:20% !important")
-						thead
-							tr
-								th Título
-								th Preço
-								th Ações
-						tbody
-							tr(ng-repeat="s in company.spaces")
-								td {{s.title}}
-								td {{s.price}}
-								td
-									button.btn-floating.btn-medium.waves-effect.waves-light.blue.right-space(title="Alterar" ng-click="viewSpace(s)")
-										i.small.material-icons mode_edit
-									button(class="btn-floating btn-medium waves-effect waves-light red", title="Excluir", ng-click="removeSpace(s)")
-										i(class="small material-icons") delete
-				.row
 					button.btn.waves-effect.waves-light.right(type="submit" ng-click="saveCompany()") Enviar
-					button.btn.waves-effect.waves-light.right.right-space(type="submit" onclick="document.getElementById('btnPhones').click()") Anterior
+					button.btn.waves-effect.waves-light.right.right-space(type="submit" onclick="document.getElementById('btnDescription').click()") Anterior

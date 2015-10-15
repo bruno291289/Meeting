@@ -31,21 +31,6 @@ module.exports = function(app) {
             number: String,
             description: String
         }],
-        spaces: [{
-            title: {
-                type: String,
-                required: true
-            },
-            description: String,
-            type: {
-                type: String,
-                required: true
-            },
-            price: {
-                type: Number,
-                required: true
-            }
-        }],
         pictures: [{
             src: {
                 type: String,

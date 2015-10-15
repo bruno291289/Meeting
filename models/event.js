@@ -8,9 +8,9 @@ module.exports = function(app) {
             ref: "User",
             required: true
         },
-        company: {
+        space: {
             type: Schema.ObjectId,
-            ref: "Company",
+            ref: "Space",
             required: true
         },
         start: {

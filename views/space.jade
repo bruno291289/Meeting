@@ -1,0 +1,65 @@
+extends layout-inner-app.jade
+block head
+	link(href="css/companylist-style.css" rel="stylesheet")
+	script(src="js/controllers/space.js")
+	script(src="js/space_viewctrl.js")
+block content
+	button.top-action-button.btn-floating.btn-large.waves-effect.waves-light.orange(onClick="showModal()" ng-click="newSpace()")
+		i.material-icons add
+	table
+		col
+		col
+		col
+		thead
+			tr
+				th Título
+				th Preço
+				th Tipo
+				th Ações
+		tbody
+			tr(ng-repeat="s in spaces | filter:searchText")
+				td {{s.title}}
+				td {{s.price}}
+				td {{s.type}}
+				td
+					button.btn-floating.btn-medium.waves-effect.waves-light.blue.right-space(title="Alterar")
+						i.material-icons mode_edit
+					button.btn-floating.btn-medium.waves-effect.waves-light.red(title="Excluir")
+						i.material-icons delete
+	#space.modal.modal-fixed-footer
+		.modal-content
+			form
+				.row
+					.col.s12
+						h5 Espaços da empresa {{space.company.name}}
+				.row
+					.input-field.col.s12
+						input#title.validate(required ng-model="space.title" type="text")
+						label(for="title") Título {{space.title}}
+				.row
+					.input-field.col.s6
+						select#type.validate(required ng-model="space.type")
+							option(value="" disabled selected) Escolha um tipo de espaço
+							option(value="Areia") Areia
+							option(value="Salão") Salão
+							option(value="Sintético") Sintético
+							option(value="Showboll") Showboll
+							option(value="Society") Society
+							option(value="Campo") Campo
+						label(for="type") Tipo de Espaço {{space.type}}
+				.row
+					.input-field.col.s3
+						input#price.validate(type="number" required ng-model="space.price" step="0.01")
+						label(for="price") Preço
+				.row
+					.input-field.col.s12
+						textarea#description.validate.materialize-textarea(ng-model="space.description")
+						label(for="description") Descrição
+				.row
+					button.waves-effect.waves-light.btn.right(onClick="closeModal()" ng-click="save()") Salvar
+block in-nav
+	.input-field.right
+		input#search(type="search" placeholder="Buscar Espaços" ng-model="searchText")
+		label(for="search")
+			i.material-icons search
+		i.material-icons close
